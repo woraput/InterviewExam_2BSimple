@@ -36,6 +36,8 @@ input::placeholder {
     padding: 2rem;
 }
 
+/* Navbar */
+
 .navbar, .navbar-footer {
     display: flex;
     background: #3460D1;
@@ -127,6 +129,8 @@ input::placeholder {
     font-size: 15px;
 }
 
+/* Footer */
+
 .navbar-footer {
     flex-shrink: 0;
     height: 200px;
@@ -187,6 +191,8 @@ input::placeholder {
     justify-content: flex-end;
 }
 
+/* Courses Content */
+
 .summary-courses {
     display: flex;
     flex-direction: column;
@@ -205,6 +211,7 @@ input::placeholder {
 .detail-summary {
     margin: 0 4rem 5rem 4rem;
     text-align: center;
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .list-image {
@@ -216,10 +223,61 @@ input::placeholder {
 }
 
 .courses {
-    display: grid;
-    grid-template-rows: repeat(6, 1fr);
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    padding: 5rem;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.item {
+    display: flex;
+    margin-bottom: 3rem;
+}
+
+.item .image-content {
+    flex: 1;
+}
+
+.item .text-content {
+    flex: 3;
+}
+
+.item .text-content h1 {
+    margin-bottom: 1rem;
+    color: #3460d1;
+    font-size: 24px;
+}
+
+.item .text-content p {
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.pagination ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination li:first-of-type {
+    margin-left: 2rem;
+}
+
+.pagination li {
+    margin-right: 2rem;
+    list-style: none;
+    font-size: 36px;
+}
+
+.pagination li.active {
+    font-weight: bolder;
+}
+
+.arrow-left:hover, .arrow-right:hover {
+    cursor: pointer;
+}
+
+.arrow-right {
+    transform: rotate(180deg);
 }
 
 .carousel {

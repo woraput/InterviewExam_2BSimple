@@ -11,33 +11,94 @@ import sky from '../img/sky.png';
 import tree from '../img/tree.png';
 import $ from 'jquery';
 import { useEffect } from 'react'
+import entryImage from '../img/entryImage.png';
+import arrow from '../img/arrow.png';
 
 const Courses = () => {
 
+    const courses = [{
+        id: 1,
+        header: "Sed ut perspiciatis unde omnis",
+        content: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem.",
+        image: entryImage
+    },
+    {
+        id: 2,
+        header: "Sed ut perspiciatis unde omnis",
+        content: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem.",
+        image: entryImage
+    },
+    {
+        id: 3,
+        header: "Sed ut perspiciatis unde omnis",
+        content: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem.",
+        image: entryImage
+    },
+    {
+        id: 4,
+        header: "Sed ut perspiciatis unde omnis",
+        content: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem.",
+        image: entryImage
+    },
+    {
+        id: 5,
+        header: "Sed ut perspiciatis unde omnis",
+        content: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem.",
+        image: entryImage
+    },
+    {
+        id: 6,
+        header: "Sed ut perspiciatis unde omnis",
+        content: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem.",
+        image: entryImage
+    }];
+
+    const listCourses = courses.map((it) =>
+        <div className="item" key={it.id}>
+            <div className="image-content">
+                <img src={it.image} alt="entry" />
+            </div>
+            <div className="text-content">
+                <h1> {it.header}</h1>
+                <p>{it.content}</p>
+            </div>
+        </div>
+    );
+
     useEffect(() => {
-        $('li:nth-child(1)').on('click', () => {
+        $('.carousel li:nth-child(1)').on('click', () => {
             $('li').removeClass('selected');
             $('li:nth-child(1)').addClass('selected');
             $('.show-image').removeClass('active');
             $('.show-image:eq(0)').addClass('active')
         })
-        $('li:nth-child(2)').on('click', () => {
+        $('.carousel li:nth-child(2)').on('click', () => {
             $('li').removeClass('selected');
             $('li:nth-child(2)').addClass('selected');
             $('.show-image').removeClass('active');
             $('.show-image:eq(1)').addClass('active');
         })
-        $('li:nth-child(3)').on('click', () => {
+        $('.carousel li:nth-child(3)').on('click', () => {
             $('li').removeClass('selected');
             $('li:nth-child(3)').addClass('selected');
             $('.show-image').removeClass('active');
             $('.show-image:eq(2)').addClass('active');
         })
-        $('li:nth-child(4)').on('click', () => {
+        $('.carousel li:nth-child(4)').on('click', () => {
             $('li').removeClass('selected');
             $('li:nth-child(4)').addClass('selected');
             $('.show-image').removeClass('active');
             $('.show-image:eq(3)').addClass('active');
+        })
+
+        $('.arrow-right').on('click', () => {
+            $('.pagination li.active').next().toggleClass('active');
+            $('.pagination li.active').prevAll().removeClass('active');
+        })
+
+        $('.arrow-left').on('click', () => {
+            $('.pagination li.active').prev().toggleClass('active');
+            $('.pagination li.active').nextAll().removeClass('active');
         })
     })
 
@@ -58,7 +119,23 @@ const Courses = () => {
             </div>
 
             <div className="container courses">
-
+                {listCourses}
+                <div className="pagination">
+                    <ul>
+                        <img className="arrow-left" src={arrow} alt="arrow left" />
+                        <li className="active">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                        <li>10</li>
+                        <img className="arrow-right " src={arrow} alt="arrow right" />
+                    </ul>
+                </div>
             </div>
 
             <div className="container-nopadding carousel">
@@ -84,7 +161,6 @@ const Courses = () => {
                     <img src={tree} alt="tree " />
                     <p className="detail-img">Vivamus ipsum orci, consectetur ut sagittis et, volutpat quis erat.  </p>
                 </div>
-
             </div>
         </div>
     )
