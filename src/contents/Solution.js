@@ -2,7 +2,7 @@ import React from 'react'
 
 const Solution = () => {
     return (
-        <div>
+        <div className="content">
             Solution content
         </div>
     )

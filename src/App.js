@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import Home from './contents/Home';
 import Solution from './contents/Solution';
 import Courses from './contents/Courses';
@@ -25,6 +26,7 @@ const App = () => {
         <Route exact path="/jobs">
           <Jobs />
         </Route>
+        <Footer />
       </div>
     </Router>
   );
